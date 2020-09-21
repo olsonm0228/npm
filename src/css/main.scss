@@ -1,0 +1,54 @@
+//Override the default theme colors for bootstrap:
+// Courtesy of themestr at:
+// https://themestr.app/theme
+
+/*! `Greyson` Bootstrap 4 theme */
+@import url(https://fonts.googleapis.com/css?family=Muli:200,300,400,700);
+$font-family-base:Muli;
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,400,700);
+$headings-font-family:Oswald;
+
+.mainText{
+    width: 60%;
+    margin: auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+code{
+    display: grid;
+    padding: .3em;
+}
+
+h6{
+    text-decoration: underline;
+    padding: .3em;
+}
+
+h1{
+    padding-top: 1em;
+}
+
+#footer{
+    left: 0;
+    margin-top: 10em;
+    margin-bottom: 2em;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@media only screen and (max-width: 64em) {
+    body{
+        font-size: 80%;
+    }
+    img{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    body{
+        font-size: 70%;
+    }
+    img{
+        display: none;
+    }
+}

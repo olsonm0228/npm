@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techies Tech</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-dark text-light">
+    <header><h1 class="text-center font-weight-bolder p-4 bg-secondary text-light">Techies Tech</h1></header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark pb-3">
+        <a href="blog.html" class="nav-item nav-link active text-info">Home</a>
+        <a href="UIDesign.html" class="nav-item nav-link text-info">UI Design</a>
+        <a href="javaScript.html" class="nav-item nav-link text-light">JavaScript</a>
+    </nav>
+    <main class="bg-dark text-light align-left">
+        <div class="mainText">
+            <h1 class="text-info" id="destructuring">ES6 Destructuring</h1>
+            <h5 class="font-italic">September 20, 2020</h5>
+            <p class="">
+                <h6>What is deconstructing?</h6>
+	            Deconstructing means to break down complex structures into simpler parts.   When used in JavaScript the complex structures to be broken down are usually objects and arrays.  It can be used within loops, functions, to declare variables, to assign variables, and more.  Deconstructing is newer to JavaScript and therefore is not supported on all browsers so you should be mindful of that when using it.
+                <h6>Why use deconstructing?</h6>
+            	Deconstructing can be a helpful technique when programming in JavaScript.  It can help simplify the programs and shorten the code.  With shortening the code, it makes it less likely to have typos in your code.  When you use deconstructing with function argument you can make your code less rigid.  This is done because you are able to pass in one variable with a lot of data inside to a function instead of that data split up.  Since you are passing in one variable you can make revisions of the code that do not break the code that is currently being used by others because the function still can accept the same variable but it can also accept that variable with more information put into it.
+            </p>
+
+            <div class="code">
+                <h6>Deconstructing Objects</h6>
+                <div><code class="bg-white text-dark">
+                    const blogSite = {title: 'Techies Tech', page: 2, author: 'Mike'}
+                </code></div>
+                Old Way
+                <div><code class="bg-white text-dark">
+                    const title = blogSite.title;<br>
+                    const page = blogSite.page;<br>
+                    const author = blogSite.author;<br>
+                    console.log(title, page, author); // 'Techies Tech' 2 'Mike'
+                </code></div>
+                Deconstructing
+                <div><code class="bg-white text-dark">
+                    const(title, page, author) = blogSite;<br>
+                    console.log(title, page, author); // 'Techies Tech' 2 'Mike'
+                </code></div>
+                Up above is an example of how to write using deconstructing on objects.  As you can see Deconstructing simplified the code from 3 lines into one. When using it like this the order of properties does not matter and the properties can be used just like any other variable.
+                <br><br>
+                <h6>Using Aliases</h6>
+                <div><code class="bg-white text-dark">
+                    const(title: t, page, author, views: v = 0) = blogSite;<br> //The views has a default value of 0<br>
+                    console.log(t, page, author, v); // 'Techies Tech' 2 'Mike' 0
+                </code></div>
+                This shows using aliases for the properties when declared and how to give a default value if none is provided.
+                <br><br>
+                <h6>Deconstructing Arrays</h6>
+                <div><code class="bg-white text-dark">
+                    const numbers = [5, 10, 15, 20, 25, 30, 35, 40];<br>
+                    //using deconstructing we can pull elements out<br>
+                    const [a, b, , , c, ...d] = numbers;<br>
+                    console.log(a); // 5<br>
+                    console.log(b); // 10<br>
+                    console.log(c); // 25<br>
+                    console.log(d); // [30, 35, 40]
+                </code></div>
+                Deconstructing arrays is similar to deconstructing objects except you can not use aliases.  You can also skip elements using a comma or get the rest of the elements in the array using "...".
+                <br><br>
+                <h6>Deconstructing Function Arguments</h6>
+                Old Way
+                <div><code class="bg-white text-dark">
+                    const title = 'Techies Tech';<br>
+                    const page = 2;<br>
+                    const author = 'Mike';<br>
+                    evaluateBlog(title, page, author);
+                </code></div>
+                <p>This can be rigid way of programming. The parameters have to be in the same order when inputed and if the code ever gets updated to use more parameters it would break the code for anyone else using it
+                </p>
+                Deconstructing
+                <div><code class="bg-white text-dark">
+                    const blogSite = { <br>
+                        title: 'Techies Tech',<br>
+                        page: 2,<br>
+                        author: 'Mike'<br>
+                    };<br>
+                    evaluateBlog(blogSite);
+                </code></div>
+                <div>Using deconstructing we are able to just pass in one parameter into the function argument.  This helps to future proof our program by allowing changes to be made later on that have the function accept more parameters without breaking existing code for people who are still using it.
+                    It also allows users to enter in the parameters for the function in any order without breaking the code.
+                </div>
+            </div>
+            <br><br>
+            <h1 class="text-info" id="errorHandling">Error Handling in JavaScript</h1>
+            <h5 class="font-italic">September 18, 2020</h5>
+            <div class="">
+                <br>Error handling in any program is important.  It can keep the program running without crashing it or stop it when the error is too big while giving important feedback on what went wrong.  In JavaScript it can keep the page functioning when an error occurs instead of letting the page freeze up.
+                <br><br>The Error object is a tool with two built in properties to use.  The first is the message, which you pass as an argument to the Error constructor.  This message is accessible through the message property of the Error object.  The second property is the error stack trace.  This is accessible through the stack property.  The error stack will give you a history of what files were responsible of causing the error that called it.  The message that was given when making the Error object is shown above the history given by the stack.
+                <br><br>The Error object does nothing when it is declared by itself.  It first needs to be thrown which will stop the script from executing, unless you handle it yourself and change what happens.  Your program is not the only thing that will be throwing errors, the library or the browser are examples of other places an error could be thrown.  One way to handle errors would be to use a try catch block.  This block of code tries to execute the code in the try block and then if it cannot, it will go to the catch block, which is were you would log the error.  There is also a third optional block you can use, the finally block.  This block is if you want to execute code whether or not the code in the try block is successful.
+            </div><br>
+            <div><code class="bg-white text-dark">
+                const example = "this is an example" <br><br>
+                try{<br>
+                    console.log(failedExample) // failedExample is not defined, so this throws an error and will go to the catch block<br>
+                } catch (err){<br>
+                    console.error(err) //this logs the error with the error stack when the try fails<br>
+                } finally {<br>
+                    console.log(example) //this code will always get executed even if an error is caught<br>
+                };<br>
+            </code></div>
+        </div>
+    </main>
+    <footer class = "bg-dark text-info" id = "footer">
+        &copy;2020 Michael Olson
+     </footer>
+</body>
+</html>
